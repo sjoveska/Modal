@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(document).ready(function() {
+      $( "#dialog" ).dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+          Proceed: function(){
+            $("#data").html($("#input-data").val());
+			//validation here
+            $( "#dialog" ).dialog("close");
+          }
+        }
+      });
+
+      $("#modal").click(function(){
+          $( "#dialog" ).dialog("open");
+      });
+  });
+
+  </script>
+
+  <style type="text/css">
+    #modal, .content
+    {
+      margin: 5px;
+    }
+    .content
+    {
+      width:300px;
+      background:#eef;
+      padding: 5px;
+      border:1px gray dotted;
+      font-size: 1.4em;
+    }
+  </style>
+</head>
+<body>
+ 
+<input type="button" id="modal" value="Enter data" />
+<div>Name and Surname:</div>
+<div id="data" class="content" ></div>
+
+
+<div id="dialog" title="Sample">
+  <p>Enter your name and surname below:</p>
+  <input id="input-data" type="text"/>
+</div>
+ 
+ 
+</body>
+</html>
